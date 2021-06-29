@@ -1,10 +1,13 @@
 // add this to your bookmark url prefaced with `javascript:`
 (function(){
+  const artistClass = 'qtmplayer__artist';
+  const songClass = 'qtmplayer__title';
   const THREE_MINUTES = 180000;
   let current;
   function sync () {
-    const track = document.getElementById('qtFeedPlayerTrack').textContent;
-    const artist = document.getElementById('qtFeedPlayerAuthor').textContent;
+    const track = document.getElementsByClassName(songClass)[0].textContent;
+    const artist = document.getElementsByClassName(artistClass)[0].textContent;
+
     if (artist.toUpperCase().includes('ID/PSA')) { return };
     if (!artist || !track) { return };
     const key = artist + track;
